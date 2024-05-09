@@ -35,6 +35,7 @@ public class DatabaseViewer {
 	private static RecordManager recman;
     private static HTree bigram;
     private static HTree trigram;
+    private static HTree unigram;
 	private static long recid;
 
     public DatabaseViewer() throws IOException {
@@ -139,6 +140,14 @@ public class DatabaseViewer {
 				trigram = HTree.load(recman, recid);
 			}
 
+			recid = recman.getNamedObject("unigram");
+
+			if(recid == 0) {
+				throw new IOException ("unigram does not exist");
+			} else {
+				unigram = HTree.load(recman, recid);
+			}
+
 		} catch (IOException e) {
 			System.out.println(e);
 			System.out.println("Error: A JDBM Database required for search funciton is missing");
@@ -159,7 +168,8 @@ public class DatabaseViewer {
 
     public static void main(String[] args) throws IOException {
         DatabaseViewer dbv = new DatabaseViewer(); 
-        dbv.view(docInvertedIndex);
+        dbv.view(unigram);
+        dbv.view(bigram);
     }
 
 

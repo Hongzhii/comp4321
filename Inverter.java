@@ -232,7 +232,12 @@ public class Inverter {
                 inverter.titleinvertedindex.addEntry(docId,wordId,frequency);
             }
 
-            //handle bigrams
+            //handle ngrams
+            Vector<String> unigrams = extractNgrams(crawler.extractWords(link),1);
+            for (String unigram: unigrams) {
+                ngramindex.addUnigramEntry(unigram,inverter.docMap.getId(link));
+            }
+
             Vector<String> bigrams = extractNgrams(crawler.extractWords(link),2);
             for (String bigram: bigrams) {
                 ngramindex.addBigramEntry(bigram,inverter.docMap.getId(link));

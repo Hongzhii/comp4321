@@ -37,6 +37,7 @@ public class SearchEngine
 	private HTree docInvertedIndex;
 	private HTree bigram;
 	private HTree trigram;
+    private HTree unigram; 
 	private RecordManager recman;
 	long recid;
     
@@ -52,6 +53,7 @@ public class SearchEngine
             HTree docInvertedIndex,
             HTree bigram,
             HTree trigram,
+            HTree unigram,
             RecordManager recman,
             long recid)throws IOException 
     {
@@ -66,6 +68,7 @@ public class SearchEngine
         this.docInvertedIndex = docInvertedIndex;
         this.bigram = bigram;
         this.trigram = trigram;
+        this.unigram = unigram;
         this.recman = recman;    
         this.recid =recid;
     }
@@ -169,6 +172,14 @@ public class SearchEngine
 
 			if(recid == 0) {
 				throw new IOException ("trigram does not exist");
+			} else {
+				trigram = HTree.load(recman, recid);
+			}
+
+			recid = recman.getNamedObject("unigram");
+
+			if(recid == 0) {
+				throw new IOException ("unigram does not exist");
 			} else {
 				trigram = HTree.load(recman, recid);
 			}
@@ -462,7 +473,9 @@ public class SearchEngine
 			HTree ngram;
 			long recid;
 
-			if(tokens.length == 2) {
+            if (tokens.length ==1 ) {
+                docList = (HashSet<Integer>) unigram.get(phrase);
+            } else if(tokens.length == 2) {
 				docList = (HashSet<Integer>) bigram.get(phrase);
 			} else if(tokens.length == 3) {
 				docList = (HashSet<Integer>) trigram.get(phrase);

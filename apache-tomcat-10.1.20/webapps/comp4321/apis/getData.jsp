@@ -36,6 +36,8 @@
     HTree bigram = HTree.load(recman, bigramid);
     long trigramid = recman.getNamedObject("trigram");
     HTree trigram = HTree.load(recman, trigramid);
+    long unigramid = recman.getNamedObject("unigram");
+    HTree unigram = HTree.load(recman, unigramid);
     getServletContext().setAttribute("invertedindex", invertedindex);
     getServletContext().setAttribute("forwardindex", forwardindex);
     getServletContext().setAttribute("titleInvertedindex", titleInvertedindex);
@@ -46,6 +48,7 @@
     getServletContext().setAttribute("idToWord", idToWord);
     getServletContext().setAttribute("bigram", bigram);
     getServletContext().setAttribute("trigram", trigram);
+    getServletContext().setAttribute("unigram", unigram);
 %>
 
 
@@ -333,7 +336,10 @@
 
             HTree bigram = (HTree) getServletContext().getAttribute("bigram");
             HTree trigram = (HTree) getServletContext().getAttribute("trigram");
-			if(tokens.length == 2) {
+            HTree unigram = (HTree) getServletContext().getAttribute("unigram");
+            if (tokens.length == 1) {
+                docList = (HashSet<Integer>) unigram.get(phrase);
+            } else if(tokens.length == 2) {
 				docList = (HashSet<Integer>) bigram.get(phrase);
 			} else if(tokens.length == 3) {
 				docList = (HashSet<Integer>) trigram.get(phrase);
