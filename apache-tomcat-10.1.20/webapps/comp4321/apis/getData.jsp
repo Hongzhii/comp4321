@@ -30,6 +30,10 @@
     HTree idToUrl = HTree.load(recman, idToUrlid);
     long wordToIdid = recman.getNamedObject("wordToId");
     HTree wordToId = HTree.load(recman, wordToIdid);
+
+    long metadataid = recman.getNamedObject("metadata");
+    HTree metadata = HTree.load(recman, metadataid);
+
     long idToWordid = recman.getNamedObject("idToWord");
     HTree idToWord = HTree.load(recman, idToWordid);
     long bigramid = recman.getNamedObject("bigram");
@@ -49,6 +53,8 @@
     getServletContext().setAttribute("bigram", bigram);
     getServletContext().setAttribute("trigram", trigram);
     getServletContext().setAttribute("unigram", unigram);
+
+    getServletContext().setAttribute("metadata", metadata);
 %>
 
 
@@ -478,30 +484,100 @@
     ngrams.addAll(two_gram);
     ngrams.addAll(three_gram);
 
-    /*
-    Posting posting = new Posting(1,1);
-    out.println(posting);
-    out.println(invertedindex);
-    out.println(invertedindex.keys());
-
-    SearchEngine se = new SearchEngine(
-    new Porter(), 
-    stopWords,
-    urlToId,
-    wordToId,
-    idToWord,
-    titleForwardindex,
-    forwardindex,
-    titleInvertedindex,
-    invertedindex,
-    bigram,
-    trigram,
-    recman,
-    idToWordid);
-    */
     
     out.println(query(input));
-    //out.println(se.query("hi"));
+
+
+    int counter = 0;
+
+    Vector<Vector<Object>> results = query(input);
+
+    StringBuilder sb = new StringBuilder();
+
+    sb.append("{results:[");
+
+
+    for (Vector<Object> result : results) {
+        if(counter == 50) {
+            break;
+        }
+
+        //String result = "[";
+
+        double score = (double) result.get(1);
+        int docId = (int) result.get(0);
+        HTree IdToUrl = (HTree) getServletContext().getAttribute("idToUrl");
+        String url = (String)IdToUrl.get(docId);
+
+
+        HTree Metadata = (HTree) getServletContext().getAttribute("metadata");
+        out.println(Metadata);
+        out.println(Metadata.get(url));
+        Container data = (Container) Metadata.get(url);
+
+        Vector<String> childLinks = data.childLinks;
+        int size = data.pageSize;
+        long lastModified = data.lastModificationDate;
+        Vector<String> title = data.title;
+
+	    HTree docForwardIndex = (HTree) getServletContext().getAttribute("forwardindex");	
+        Vector<Posting> wordFrequencies = (Vector<Posting>) docForwardIndex.get(docId);
+
+         //<!-- Add url -->
+         sb.append(url + ",");
+
+        //<!-- Add score -->
+        sb.append(String.valueOf(score) + ",");
+
+        //<!-- Add page size -->
+        sb.append(String.valueOf(size) + ",");
+
+        //<!-- Add lastModified -->
+        sb.append(lastModified + ",");
+
+        //<!-- Add title -->
+        for(String word : title) {
+            sb.append(word + " ");
+        }
+        StringBuilder newSb = new StringBuilder(sb.substring(0, sb.length() - 1));
+        sb = newSb;
+        //sb = sb.substring(0, sb.length() - 1);
+        sb.append(",");
+
+        //<!-- Add childLinks -->
+        sb.append("[");
+        for(String link : childLinks) {
+            sb.append(link + ",");
+        }
+        newSb = new StringBuilder(sb.substring(0, sb.length() - 1));
+        sb = newSb;
+        //sb = sb.substring(0, sb.length() - 1);
+        sb.append("],");
+
+        //<!-- Add wordFrequencies -->
+        sb.append("[");
+        for(Posting word : wordFrequencies) {
+            sb.append("[" + word.id + "," + word.freq + "],");
+        }
+        newSb = new StringBuilder(sb.substring(0, sb.length() - 1));
+        sb = newSb;
+        //sb = sb.substring(0, sb.length() - 1);
+        sb.append("]");
+
+        sb.append("],");
+        counter++;
+    }
+
+    StringBuilder newSb = new StringBuilder(sb.substring(0, sb.length() - 1));
+    sb = newSb;
+    //sb = sb.substring(0, sb.length() - 1);
+
+    sb.append("]}");
+
+    response.setCharacterEncoding("UTF-8");
+    response.setContentType("text/html;charset=UTF-8");
+    //out.println(sb.toString());
+    response.getWriter().write(sb.toString());
 %>
 
 
