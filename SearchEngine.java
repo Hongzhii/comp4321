@@ -463,13 +463,9 @@ public class SearchEngine
 			long recid;
 
 			if(tokens.length == 2) {
-				recid = recman.getNamedObject("bigram");
-				ngram = HTree.load(recman, recid);
-				docList = (HashSet<Integer>) ngram.get(phrase);
+				docList = (HashSet<Integer>) bigram.get(phrase);
 			} else if(tokens.length == 3) {
-				recid = recman.getNamedObject("trigram");
-				ngram = HTree.load(recman, recid);
-				docList = (HashSet<Integer>) ngram.get(phrase);
+				docList = (HashSet<Integer>) trigram.get(phrase);
 			}
 
 			if(docList == null) {
