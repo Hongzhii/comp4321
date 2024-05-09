@@ -23,15 +23,14 @@ javac -cp htmlparser.jar:jsoup-1.17.2.jar:jdbm-1.0.jar:. *.java
 To run the program, use the following command
 
 ```shell
-java -cp htmlparser.jar:jsoup-1.17.2.jar:jdbm-1.0.jar:. Inverter.java "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm"
+java -cp htmlparser.jar:jsoup-1.17.2.jar:jdbm-1.0.jar:. PROJECT.Inverter "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm"
 ```
 
 
-Running the Reader
-To run the Reader program, use the following command:
+Running other java files for testing (e.g: SearchEngine)
 
 ```shell
-java -cp htmlparser.jar:jsoup-1.17.2.jar:jdbm-1.0.jar:. Reader.java
+java -cp htmlparser.jar:jsoup-1.17.2.jar:jdbm-1.0.jar:. PROJECT.SearchEngine
 ```
 
 
