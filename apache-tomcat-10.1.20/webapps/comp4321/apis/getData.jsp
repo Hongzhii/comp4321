@@ -418,7 +418,6 @@
 
     String input = request.getParameter("input").trim();
     
-    out.println(getWords(input));
 
     // case to handle null or empty input
     if (input == null || input.isEmpty()) {
@@ -485,99 +484,72 @@
     ngrams.addAll(three_gram);
 
     
-    out.println(query(input));
 
+	Vector<Vector<Object>> results = query(input);
 
-    int counter = 0;
+	StringBuilder sb = new StringBuilder();
+	sb.append("{ \"results\": [");
 
-    Vector<Vector<Object>> results = query(input);
+	int counter = 0; // Initialize counter
+	for (Vector<Object> result : results) {
+		if (counter == 50) {
+			break;
+		}
 
-    StringBuilder sb = new StringBuilder();
+		double score = (double) result.get(1);
+		int docId = (int) result.get(0);
+		HTree IdToUrl = (HTree) getServletContext().getAttribute("idToUrl");
+		String url = (String) IdToUrl.get(docId);
 
-    sb.append("{results:[");
+		HTree Metadata = (HTree) getServletContext().getAttribute("metadata");
+		Container data = (Container) Metadata.get(url);
 
+		Vector<String> childLinks = data.childLinks;
+		int size = data.pageSize;
+		long lastModified = data.lastModificationDate;
+		Vector<String> title = data.title;
 
-    for (Vector<Object> result : results) {
-        if(counter == 50) {
-            break;
-        }
+		HTree docForwardIndex = (HTree) getServletContext().getAttribute("forwardindex");
+		Vector<Posting> wordFrequencies = (Vector<Posting>) docForwardIndex.get(docId);
 
-        //String result = "[";
+		sb.append("{");
+		sb.append("\"url\": \"" + url + "\",");
+		sb.append("\"score\": " + score + ",");
+		sb.append("\"pageSize\": " + size + ",");
+		sb.append("\"lastModified\": " + lastModified + ",");
+		sb.append("\"title\": \"" + String.join(" ", title) + "\",");
+		sb.append("\"childLinks\": [\"" + String.join("\",\"", childLinks) + "\"],");
+		sb.append("\"wordFrequencies\": [");
 
-        double score = (double) result.get(1);
-        int docId = (int) result.get(0);
-        HTree IdToUrl = (HTree) getServletContext().getAttribute("idToUrl");
-        String url = (String)IdToUrl.get(docId);
+        HTree IdToWord = (HTree) getServletContext().getAttribute("idToWord");
+		for (Posting word : wordFrequencies) {
+			sb.append("{");
+			sb.append("\"word\": \"" + IdToWord.get(word.id) + "\", ");
+			sb.append("\"frequency\": " + word.freq);
+			sb.append("},");
+		}
 
+		if (!wordFrequencies.isEmpty()) {
+			sb.setLength(sb.length() - 1); // Remove the trailing comma
+		}
 
-        HTree Metadata = (HTree) getServletContext().getAttribute("metadata");
-        out.println(Metadata);
-        out.println(Metadata.get(url));
-        Container data = (Container) Metadata.get(url);
+		sb.append("]},");
 
-        Vector<String> childLinks = data.childLinks;
-        int size = data.pageSize;
-        long lastModified = data.lastModificationDate;
-        Vector<String> title = data.title;
+		counter++;
+	}
 
-	    HTree docForwardIndex = (HTree) getServletContext().getAttribute("forwardindex");	
-        Vector<Posting> wordFrequencies = (Vector<Posting>) docForwardIndex.get(docId);
+	if (counter > 0) {
+		sb.setLength(sb.length() - 1); // Remove the trailing comma after the last result
+	}
 
-         //<!-- Add url -->
-         sb.append(url + ",");
+	sb.append("]}");
 
-        //<!-- Add score -->
-        sb.append(String.valueOf(score) + ",");
+	String jsonResult = sb.toString();
 
-        //<!-- Add page size -->
-        sb.append(String.valueOf(size) + ",");
-
-        //<!-- Add lastModified -->
-        sb.append(lastModified + ",");
-
-        //<!-- Add title -->
-        for(String word : title) {
-            sb.append(word + " ");
-        }
-        StringBuilder newSb = new StringBuilder(sb.substring(0, sb.length() - 1));
-        sb = newSb;
-        //sb = sb.substring(0, sb.length() - 1);
-        sb.append(",");
-
-        //<!-- Add childLinks -->
-        sb.append("[");
-        for(String link : childLinks) {
-            sb.append(link + ",");
-        }
-        newSb = new StringBuilder(sb.substring(0, sb.length() - 1));
-        sb = newSb;
-        //sb = sb.substring(0, sb.length() - 1);
-        sb.append("],");
-
-        //<!-- Add wordFrequencies -->
-        sb.append("[");
-        for(Posting word : wordFrequencies) {
-            sb.append("[" + word.id + "," + word.freq + "],");
-        }
-        newSb = new StringBuilder(sb.substring(0, sb.length() - 1));
-        sb = newSb;
-        //sb = sb.substring(0, sb.length() - 1);
-        sb.append("]");
-
-        sb.append("],");
-        counter++;
-    }
-
-    StringBuilder newSb = new StringBuilder(sb.substring(0, sb.length() - 1));
-    sb = newSb;
-    //sb = sb.substring(0, sb.length() - 1);
-
-    sb.append("]}");
 
     response.setCharacterEncoding("UTF-8");
     response.setContentType("text/html;charset=UTF-8");
-    //out.println(sb.toString());
-    response.getWriter().write(sb.toString());
+    response.getWriter().write(jsonResult);
 %>
 
 

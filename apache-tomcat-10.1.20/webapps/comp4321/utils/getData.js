@@ -13,7 +13,8 @@ function getPages(input) {
     url: "../comp4321/apis/getData.jsp", // Endpoint URL to fetch data
     data: { input: input }, // Data to be sent to the server
     type: "GET", // HTTP method
-    dataType: "json", // Data type expected from the server
+    contentType: "application/json",
+    //dataType: "text", // Data type expected from the server
     success: function (data) {
       // Handle successful response
       // Process the data and update the UI as needed
