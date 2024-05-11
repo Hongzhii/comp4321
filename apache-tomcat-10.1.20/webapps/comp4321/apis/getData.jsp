@@ -122,6 +122,7 @@
 	    double getDocMagnitude(int docId, int N) throws IOException {
 	    HTree docForwardIndex = (HTree) getServletContext().getAttribute("forwardindex");	
         Vector<Posting> wordPostingVector = (Vector<Posting>) docForwardIndex.get(docId);
+        //gets a Vector<Posting<wordid,frequency>>
 		double magnitude = 0;
 		for(Posting wordPosting : wordPostingVector) {
 			magnitude += Math.pow(getTermWeightDoc(wordPosting.id, docId, wordPosting.freq, N), 2);
@@ -195,13 +196,14 @@
 			String[] phraseTokens = tokens[1].split(" ");
 
 			for(String phraseToken : phraseTokens) {
+				if(stopWords.contains(phraseToken)) {
+					phrase = "";
+					continue;
+				}
 				phrase += porter.stripAffixes(phraseToken);
 				phrase += " ";
 
-				if(stopWords.contains(phraseToken)) {
-					phrase = "";
-					break;
-				}
+
 			}
 		}
 
@@ -243,31 +245,29 @@
 <%! 
     	Vector<Vector<Object>> search(Vector<Integer> query, String phrase) throws IOException {
 		if(phrase == "") {
-			HashMap<Integer, Double> consolidatedScores = new HashMap<>();
+			//This means that there is no phrase
+			HashMap<Integer, Double> consolidatedScores = new HashMap<>(); //key is docid, score
 			// Title Constant for prioritizing title matches
 			int TITLE_CONSTANT = 4;
 			// Find the total number of terms
-			int N_doc = 0;
+			int N_doc = 0; 
 			int N_title = 0;
-            HTree docInvertedIndex = (HTree) getServletContext().getAttribute("invertedindex");
-            HTree titleInvertedIndex = (HTree) getServletContext().getAttribute("titleInvertedindex");
-			FastIterator iterTerms = docInvertedIndex.keys();
+            HTree forwardIndex = (HTree) getServletContext().getAttribute("forwardindex");
+			FastIterator iterTerms = forwardIndex.keys();
 			Integer tempId;
+			//This is changed. Previously it was wrongly the total number of terms! but it should be the total number of documents!!!!
 			while ((tempId = (Integer) iterTerms.next()) != null) {
 				N_doc++;
 			}
-
-			iterTerms = titleInvertedIndex.keys();
-			while ((tempId = (Integer) iterTerms.next()) != null) {
-				N_title++;
-			}
+			N_title=N_doc;
 
 			try {
 				for(Integer wordId : query) {
 					if(wordId == null) {
 						continue;
 					}
-
+					HTree docInvertedIndex = (HTree) getServletContext().getAttribute("invertedindex");
+					HTree titleInvertedIndex = (HTree) getServletContext().getAttribute("titleInvertedindex");
 					Vector<Posting> docPostingVector = (Vector<Posting>) docInvertedIndex.get(wordId);
 					Vector<Posting> titlePostingVector = (Vector<Posting>) titleInvertedIndex.get(wordId);
 
@@ -279,6 +279,7 @@
 							double docMagnitude = getDocMagnitude(docId, N_doc);
 
 							termWeight = termWeight / docMagnitude;
+							//used for cosine similarity, in denominator
 							if (consolidatedScores.containsKey(docId)) {
 								double currentScore = consolidatedScores.get(docId);
 								consolidatedScores.put(docId, currentScore + termWeight);
@@ -296,6 +297,7 @@
 							double titleMagnitude = getTitleMagnitude(docId, N_doc);
 
 							termWeight = TITLE_CONSTANT * termWeight / titleMagnitude;
+							//used for cosine similarity, in denominator
 
 							if (consolidatedScores.containsKey(docId)) {
 								double currentScore = consolidatedScores.get(docId);
@@ -313,15 +315,17 @@
 			Vector<Vector<Object>> results = new Vector<Vector<Object>>();
 			double queryMagnitude = Math.sqrt(query.size()); // Required for calculating cosine similarity
 
-			for(Integer key : keys) {
+			for(Integer key : keys) { //Pair<Docid, Score>
 				Vector pair = new Vector<>();
 				pair.add(key);
 				pair.add(consolidatedScores.get(key) / queryMagnitude);
+				//complete denominator for cosine similarity
 				results.add(pair);
 			}
 			System.out.println(results.size());
 			Collections.sort(results, new Comparator<Vector<Object>>() {
 				@Override
+				//correct. Return in descending order 
 				public int compare(Vector<Object> p1, Vector<Object> p2) {
 					double diff = (double) p1.get(1) - (double) p2.get(1);
 					if (diff < 0) {
@@ -336,6 +340,7 @@
 
 			return results;
 		} else {
+			//There is a phrase search!
 			String[] tokens = phrase.split(" ");
 
 			HashSet<Integer> docList = new HashSet<>();
@@ -352,42 +357,22 @@
 			}
 
 			if(docList == null) {
+				//if phrase does not exist, just return nothing
 				Vector<Vector<Object>> results = new Vector<Vector<Object>>();
 				return results;
 			}
 
 			Vector<Vector<Object>> results = search(query, "");
-
-			Iterator<Vector<Object>> iterator = results.iterator();
-			while (iterator.hasNext()) {
-				Vector<Object> pair = iterator.next();
-				if (!docList.contains((Integer) pair.get(0))) {
-					iterator.remove();
+			//repeat query, but without the phrase now 
+			//results is Vector<Vector<Integer,Double>>
+			Vector<Vector<Object>> filteredResult = new Vector<>();
+			for (Vector<Object> entry:results){
+				Integer documentId = (Integer) entry.get(0);
+				if (docList.contains(documentId)) {
+					filteredResult.add(entry);
 				}
 			}
-
-			for(Integer docId : docList) {
-				int EXISTS = 0;
-
-				for(Vector<Object> pair : results) {
-					if(((int) pair.get(0)) == docId) {
-						EXISTS = 1;
-						break;
-					}
-				}
-
-				if(EXISTS == 1) {
-					continue; // If entry is already in results, skip adding it
-				}
-
-				Vector<Object> tempPair = new Vector<>();
-				tempPair.add(docId);
-				tempPair.add(0);
-
-				results.add(tempPair);
-			}
-
-			return results;
+			return filteredResult;
 		}
 	}
 
@@ -413,7 +398,7 @@
 
 <%
     if (isPhraseSearch(request.getParameter("input"))) {
-        out.print("Phrase Search initiated");
+        //out.println("Phrase Search initiated");
     }
 
     String input = request.getParameter("input").trim();
@@ -425,66 +410,10 @@
         out.print("{\"sortedPages\":[],\"pages\":{}}");
         return;
     }
-    // Extract n-grams from the list of words
-    List<String> words = Arrays.asList(input.split("\\s+"));
-    List<String> one_gram = new ArrayList<String>();
-    List<String> two_gram = new ArrayList<String>();
-    List<String> three_gram = new ArrayList<String>();
-
-    for (int i=0; i < words.size(); i++) {
-        String ngram = "";
-        // 1-gram
-        for (int j=0; j<1; j++) {
-            String word = words.get(i+j).toLowerCase();
-            if (stopWords.contains(word)) {
-                ngram = "";
-                break;
-            }
-            ngram += porter.stripAffixes(word) + " ";
-        }
-        if (ngram != ""){
-            one_gram.add(ngram.trim());
-        }
-        // 2-gram
-        ngram = "";
-        if (i < words.size()-1){
-            for (int j=0; j<2; j++) {
-                String word = words.get(i+j).toLowerCase();
-                if (stopWords.contains(word)) {
-                    ngram = "";
-                    break;
-                }
-                ngram += porter.stripAffixes(word) + " ";
-            }
-            if (ngram != ""){
-                two_gram.add(ngram.trim());
-            }
-        }
-        // 3-gram
-        ngram = "";
-        if (i < words.size()-2){
-            for (int j=0; j<3; j++) {
-                String word = words.get(i+j).toLowerCase();
-                if (stopWords.contains(word)) {
-                    ngram = "";
-                    break;
-                }
-                ngram += porter.stripAffixes(word) + " ";
-            }
-            if (ngram != ""){
-                three_gram.add(ngram.trim());
-            }
-        }
-    };
-
-    // create a list of all the n-grams
-    List<String> ngrams = new ArrayList<String>();
-    ngrams.addAll(one_gram);
-    ngrams.addAll(two_gram);
-    ngrams.addAll(three_gram);
-
     
-
+    //out.println(getPhrase(input));
+    //getPhrase works
+   
 	Vector<Vector<Object>> results = query(input);
 
 	StringBuilder sb = new StringBuilder();
@@ -515,7 +444,7 @@
 		sb.append("{");
 		sb.append("\"url\": \"" + url + "\",");
 		sb.append("\"score\": " + score + ",");
-		sb.append("\"pageSize\": " + size + ",");
+		sb.append("\"size\": " + size + ",");
 		sb.append("\"lastModified\": " + lastModified + ",");
 		sb.append("\"title\": \"" + String.join(" ", title) + "\",");
 		sb.append("\"childLinks\": [\"" + String.join("\",\"", childLinks) + "\"],");
@@ -550,6 +479,7 @@
     response.setCharacterEncoding("UTF-8");
     response.setContentType("text/html;charset=UTF-8");
     response.getWriter().write(jsonResult);
+    
 %>
 
 
