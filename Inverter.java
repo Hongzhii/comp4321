@@ -25,7 +25,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import jdbm.RecordManager;
 import jdbm.RecordManagerFactory;
-
+import jdbm.htree.HTree;
 //hashmap for counting frequencies
 import java.util.HashMap;
 import java.util.Map;
@@ -56,7 +56,10 @@ public class Inverter {
 
 
     //to handle ngrams
-    private static NgramIndex ngramindex; 
+    private static NgramIndex ngramindex;
+
+    //to handle parent links
+    public static HTree parentLinkIndex; 
 
     
 
@@ -83,6 +86,15 @@ public class Inverter {
 		this.titleinvertedindex = new TitleInvertedIndex(recman);
         this.metadata = new Metadata(recman);
         this.ngramindex = new NgramIndex(recman);
+
+        long parentLinkIndexId = recman.getNamedObject("parentLinks");
+        if (parentLinkIndexId!=0) {
+            this.parentLinkIndex = HTree.load(recman,parentLinkIndexId);
+        } else {
+            this.parentLinkIndex = HTree.createInstance(recman);
+            recman.setNamedObject("parentLinks",parentLinkIndex.getRecid());
+        }
+        
     }
 
     public static Vector<String> removeStopwords(Vector<String> words) {
@@ -165,9 +177,22 @@ public class Inverter {
 				}
 			}
 			
-
-
             Vector<String> childLinks = crawler.extractLinks(link); 
+
+            for (String childLink: childLinks) {
+                Vector<String> parentlinks = (Vector<String>)parentLinkIndex.get(childLink);
+                if (parentlinks != null) {
+                    parentlinks.add(link);
+                    parentLinkIndex.put(childLink,parentlinks);
+                } else {
+                    //no current parent links
+                    parentlinks = new Vector<String>();
+                    parentlinks.add(link);
+                    parentLinkIndex.put(childLink,parentlinks);
+                }
+            }
+
+
             Vector<String> title = crawler.extractTitle(link);
             long lastModificationDate = crawler.getLastModificationDate(link);
             int pageSize = crawler.getPageSize(link);

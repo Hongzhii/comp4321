@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search Engine</title>
+    <title>Search Engine For Comp 4321</title>
     <link rel="stylesheet" href="styles.css" />
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -18,7 +18,7 @@
       <!-- <jsp:include page="html/searchResults.html" /> -->
     </main>
     <footer>
-      <p>COMP4321</p>
+      <p>COMP4321. Made By Emmanuel, Hong Zhi and Clement.</p>
     </footer>
   </body>
 </html>

@@ -132,3 +132,58 @@ a {
 .form-wrapper #submit::-moz-focus-inner {
   border: 0;
 }
+
+/* CSS styles for the box container */
+.keyword-box {
+    display: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: height 0.3s ease;
+    overflow: hidden;
+}
+
+/* CSS styles for the expanded box */
+.keyword-box.expanded {
+    height: auto; /* Auto height to expand */
+}
+
+
+
+.entry {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+
+.header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.details {
+    margin-top: 10px;
+}
+
+.keywords, .child-links, .parent-links {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.show-more-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.show-more-btn:hover {
+    background-color: #0056b3;
+}

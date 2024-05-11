@@ -37,6 +37,7 @@ public class DatabaseViewer {
     private static HTree trigram;
     private static HTree unigram;
     private static HTree metadata;
+    private static HTree parentLinkIndex;
 	private static long recid;
 
     public DatabaseViewer() throws IOException {
@@ -156,6 +157,15 @@ public class DatabaseViewer {
 			} else {
 				metadata = HTree.load(recman, recid);
 			}
+			
+			recid = recman.getNamedObject("parentLinks");
+
+			if(recid == 0) {
+				throw new IOException ("parentLinks does not exist");
+			} else {
+				parentLinkIndex = HTree.load(recman, recid);
+			}
+
 		} catch (IOException e) {
 			System.out.println(e);
 			System.out.println("Error: A JDBM Database required for search funciton is missing");
@@ -176,7 +186,7 @@ public class DatabaseViewer {
 
     public static void main(String[] args) throws IOException {
         DatabaseViewer dbv = new DatabaseViewer(); 
-        dbv.view(metadata);
+        dbv.view(parentLinkIndex);
     }
 
 

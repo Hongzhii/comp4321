@@ -40,8 +40,13 @@
     HTree bigram = HTree.load(recman, bigramid);
     long trigramid = recman.getNamedObject("trigram");
     HTree trigram = HTree.load(recman, trigramid);
+    
     long unigramid = recman.getNamedObject("unigram");
     HTree unigram = HTree.load(recman, unigramid);
+    
+    long parentlinksid = recman.getNamedObject("parentLinks");
+    HTree parentlinks = HTree.load(recman, parentlinksid);
+    
     getServletContext().setAttribute("invertedindex", invertedindex);
     getServletContext().setAttribute("forwardindex", forwardindex);
     getServletContext().setAttribute("titleInvertedindex", titleInvertedindex);
@@ -53,7 +58,7 @@
     getServletContext().setAttribute("bigram", bigram);
     getServletContext().setAttribute("trigram", trigram);
     getServletContext().setAttribute("unigram", unigram);
-
+    getServletContext().setAttribute("parentlinks", parentlinks);
     getServletContext().setAttribute("metadata", metadata);
 %>
 
@@ -191,8 +196,9 @@
 
         //Retrieve the stopWords HashMap from the servlet context
         HashSet<String> stopWords = (HashSet<String>) getServletContext().getAttribute("stopWords");
-
+        
 		if(tokens.length == 3) {
+
 			String[] phraseTokens = tokens[1].split(" ");
 
 			for(String phraseToken : phraseTokens) {
@@ -410,10 +416,10 @@
         out.print("{\"sortedPages\":[],\"pages\":{}}");
         return;
     }
-    
+    //out.println(input);
     //out.println(getPhrase(input));
     //getPhrase works
-   
+   	
 	Vector<Vector<Object>> results = query(input);
 
 	StringBuilder sb = new StringBuilder();
@@ -433,6 +439,9 @@
 		HTree Metadata = (HTree) getServletContext().getAttribute("metadata");
 		Container data = (Container) Metadata.get(url);
 
+		HTree Parentlinks = (HTree) getServletContext().getAttribute("parentlinks");
+		Vector<String> curparentlinks = (Vector<String>)Parentlinks.get(url);
+
 		Vector<String> childLinks = data.childLinks;
 		int size = data.pageSize;
 		long lastModified = data.lastModificationDate;
@@ -448,6 +457,7 @@
 		sb.append("\"lastModified\": " + lastModified + ",");
 		sb.append("\"title\": \"" + String.join(" ", title) + "\",");
 		sb.append("\"childLinks\": [\"" + String.join("\",\"", childLinks) + "\"],");
+		sb.append("\"parentLinks\": [\"" + String.join("\",\"", curparentlinks) + "\"],");
 		sb.append("\"wordFrequencies\": [");
 
         HTree IdToWord = (HTree) getServletContext().getAttribute("idToWord");
