@@ -354,12 +354,24 @@
             HTree bigram = (HTree) getServletContext().getAttribute("bigram");
             HTree trigram = (HTree) getServletContext().getAttribute("trigram");
             HTree unigram = (HTree) getServletContext().getAttribute("unigram");
-            if (tokens.length == 1) {
-                docList = (HashSet<Integer>) unigram.get(phrase);
-            } else if(tokens.length == 2) {
-				docList = (HashSet<Integer>) bigram.get(phrase);
-			} else if(tokens.length == 3) {
-				docList = (HashSet<Integer>) trigram.get(phrase);
+   //          if (tokens.length == 1) {
+   //              docList = (HashSet<Integer>) unigram.get(phrase);
+   //          } else if(tokens.length == 2) {
+			// 	docList = (HashSet<Integer>) bigram.get(phrase);
+			// } else if(tokens.length == 3) {
+			// 	docList = (HashSet<Integer>) trigram.get(phrase);
+			// }
+			HashSet<Integer> unigramResult = (HashSet<Integer>)unigram.get(phrase);
+			HashSet<Integer> bigramResult = (HashSet<Integer>)bigram.get(phrase);
+			HashSet<Integer> trigramResult = (HashSet<Integer>)trigram.get(phrase);
+			if(unigramResult!= null) {
+				docList.addAll(unigramResult);
+			}
+			if(bigramResult!= null) {
+				docList.addAll(bigramResult);
+			}
+			if(trigramResult!= null) {
+				docList.addAll(trigramResult);
 			}
 
 			if(docList == null) {

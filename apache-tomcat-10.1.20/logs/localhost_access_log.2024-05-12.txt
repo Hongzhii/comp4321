@@ -213,3 +213,16 @@
 0:0:0:0:0:0:0:1 - - [12/May/2024:02:07:54 +0800] "GET /comp4321/utils/getData.js HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [12/May/2024:02:07:54 +0800] "GET /comp4321/utils/utils.js HTTP/1.1" 200 5533
 0:0:0:0:0:0:0:1 - - [12/May/2024:02:08:01 +0800] "GET /comp4321/apis/getData.jsp?input=test HTTP/1.1" 200 69658
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:14:56 +0800] "GET / HTTP/1.1" 200 11239
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:14:59 +0800] "GET /comp4321/ HTTP/1.1" 200 1212
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:14:59 +0800] "GET /comp4321/styles.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:14:59 +0800] "GET /comp4321/utils/getData.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:14:59 +0800] "GET /comp4321/utils/utils.js HTTP/1.1" 200 5533
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:15:40 +0800] "GET /comp4321/apis/getData.jsp?input=test HTTP/1.1" 200 69658
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:16:13 +0800] "GET /comp4321/apis/getData.jsp?input=%22Hong%20Kong%22%20university HTTP/1.1" 200 22101
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:16:37 +0800] "GET /comp4321/apis/getData.jsp?input=%22information%22%20retrieval HTTP/1.1" 200 11579
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:44:43 +0800] "GET /comp4321/ HTTP/1.1" 200 1212
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:44:43 +0800] "GET /comp4321/styles.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:44:43 +0800] "GET /comp4321/utils/getData.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:44:43 +0800] "GET /comp4321/utils/utils.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [12/May/2024:02:44:53 +0800] "GET /comp4321/apis/getData.jsp?input=%22Hong%20Kong%22%20university HTTP/1.1" 200 22101

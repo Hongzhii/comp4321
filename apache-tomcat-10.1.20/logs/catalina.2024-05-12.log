@@ -105,3 +105,231 @@
 12-May-2024 02:09:12.432 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
 12-May-2024 02:09:12.561 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
 12-May-2024 02:09:12.567 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+12-May-2024 02:14:29.723 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.20
+12-May-2024 02:14:29.729 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 19 2024 12:49:58 UTC
+12-May-2024 02:14:29.729 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.20.0
+12-May-2024 02:14:29.730 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+12-May-2024 02:14:29.730 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.133.1-microsoft-standard-WSL2
+12-May-2024 02:14:29.730 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+12-May-2024 02:14:29.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-19-openjdk-amd64
+12-May-2024 02:14:29.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           19.0.2+7-Ubuntu-0ubuntu322.04
+12-May-2024 02:14:29.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Private Build
+12-May-2024 02:14:29.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:14:29.732 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:14:29.745 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/conf/logging.properties
+12-May-2024 02:14:29.746 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+12-May-2024 02:14:29.746 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+12-May-2024 02:14:29.746 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+12-May-2024 02:14:29.746 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+12-May-2024 02:14:29.747 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+12-May-2024 02:14:29.747 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+12-May-2024 02:14:29.747 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+12-May-2024 02:14:29.748 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+12-May-2024 02:14:29.748 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+12-May-2024 02:14:29.748 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:14:29.749 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:14:29.749 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/temp
+12-May-2024 02:14:29.753 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+12-May-2024 02:14:30.128 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+12-May-2024 02:14:30.159 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [686] milliseconds
+12-May-2024 02:14:30.234 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+12-May-2024 02:14:30.234 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.20]
+12-May-2024 02:14:30.263 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/comp4321]
+12-May-2024 02:14:32.502 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+12-May-2024 02:14:32.629 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/comp4321] has finished in [2,367] ms
+12-May-2024 02:14:32.630 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/docs]
+12-May-2024 02:14:32.907 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/docs] has finished in [277] ms
+12-May-2024 02:14:32.908 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/examples]
+12-May-2024 02:14:35.511 SEVERE [main] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+12-May-2024 02:14:35.512 SEVERE [main] org.apache.catalina.core.StandardContext.startInternal Context [/examples] startup failed due to previous errors
+12-May-2024 02:14:35.555 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/examples] has finished in [2,646] ms
+12-May-2024 02:14:35.557 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/host-manager]
+12-May-2024 02:14:35.834 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/host-manager] has finished in [277] ms
+12-May-2024 02:14:35.836 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/manager]
+12-May-2024 02:14:36.456 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/manager] has finished in [620] ms
+12-May-2024 02:14:36.457 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/ROOT]
+12-May-2024 02:14:36.682 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/ROOT] has finished in [224] ms
+12-May-2024 02:14:36.690 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+12-May-2024 02:14:36.717 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [6556] milliseconds
+12-May-2024 02:14:54.194 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.20
+12-May-2024 02:14:54.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 19 2024 12:49:58 UTC
+12-May-2024 02:14:54.198 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.20.0
+12-May-2024 02:14:54.198 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+12-May-2024 02:14:54.198 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.133.1-microsoft-standard-WSL2
+12-May-2024 02:14:54.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+12-May-2024 02:14:54.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-19-openjdk-amd64
+12-May-2024 02:14:54.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           19.0.2+7-Ubuntu-0ubuntu322.04
+12-May-2024 02:14:54.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Private Build
+12-May-2024 02:14:54.203 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:14:54.203 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:14:54.207 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/conf/logging.properties
+12-May-2024 02:14:54.208 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+12-May-2024 02:14:54.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+12-May-2024 02:14:54.209 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+12-May-2024 02:14:54.211 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+12-May-2024 02:14:54.211 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+12-May-2024 02:14:54.212 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+12-May-2024 02:14:54.212 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+12-May-2024 02:14:54.213 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+12-May-2024 02:14:54.214 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+12-May-2024 02:14:54.215 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:14:54.215 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:14:54.216 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/temp
+12-May-2024 02:14:54.221 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+12-May-2024 02:14:54.519 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+12-May-2024 02:14:54.530 SEVERE [main] org.apache.catalina.util.LifecycleBase.handleSubClassException Failed to initialize component [Connector["http-nio-8080"]]
+	org.apache.catalina.LifecycleException: Protocol handler initialization failed
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1016)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		at org.apache.catalina.core.StandardService.initInternal(StandardService.java:554)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:1017)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:708)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:731)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:302)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:472)
+	Caused by: java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:555)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+		at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:239)
+		at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:194)
+		at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1307)
+		at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1320)
+		at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:624)
+		at org.apache.coyote.http11.AbstractHttp11Protocol.init(AbstractHttp11Protocol.java:77)
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1014)
+		... 11 more
+12-May-2024 02:14:54.531 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [587] milliseconds
+12-May-2024 02:14:54.586 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+12-May-2024 02:14:54.587 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.20]
+12-May-2024 02:14:54.611 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/comp4321]
+12-May-2024 02:14:56.680 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+12-May-2024 02:14:56.796 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/comp4321] has finished in [2,185] ms
+12-May-2024 02:14:56.805 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/docs]
+12-May-2024 02:14:57.081 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/docs] has finished in [276] ms
+12-May-2024 02:14:57.082 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/examples]
+12-May-2024 02:15:00.196 SEVERE [main] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+12-May-2024 02:15:00.197 SEVERE [main] org.apache.catalina.core.StandardContext.startInternal Context [/examples] startup failed due to previous errors
+12-May-2024 02:15:00.222 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/examples] has finished in [3,139] ms
+12-May-2024 02:15:00.223 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/host-manager]
+12-May-2024 02:15:00.550 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/host-manager] has finished in [327] ms
+12-May-2024 02:15:00.551 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/manager]
+12-May-2024 02:15:01.581 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/manager] has finished in [1,030] ms
+12-May-2024 02:15:01.582 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/ROOT]
+12-May-2024 02:15:01.791 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/ROOT] has finished in [208] ms
+12-May-2024 02:15:01.798 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [7265] milliseconds
+12-May-2024 02:15:01.800 SEVERE [main] org.apache.catalina.core.StandardServer.await Failed to create server shutdown socket on address [localhost] and port [8005] (base port [8005] and offset [0])
+	java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:555)
+		at java.base/sun.nio.ch.Net.bind(Net.java:544)
+		at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:629)
+		at java.base/java.net.ServerSocket.bind(ServerSocket.java:393)
+		at java.base/java.net.ServerSocket.<init>(ServerSocket.java:275)
+		at org.apache.catalina.core.StandardServer.await(StandardServer.java:577)
+		at org.apache.catalina.startup.Catalina.await(Catalina.java:847)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:795)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+12-May-2024 02:15:01.801 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+12-May-2024 02:15:01.801 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+12-May-2024 02:15:01.944 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+12-May-2024 02:15:01.946 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+12-May-2024 02:44:39.437 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.20
+12-May-2024 02:44:39.440 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 19 2024 12:49:58 UTC
+12-May-2024 02:44:39.440 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.20.0
+12-May-2024 02:44:39.440 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+12-May-2024 02:44:39.441 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.133.1-microsoft-standard-WSL2
+12-May-2024 02:44:39.441 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+12-May-2024 02:44:39.441 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-19-openjdk-amd64
+12-May-2024 02:44:39.442 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           19.0.2+7-Ubuntu-0ubuntu322.04
+12-May-2024 02:44:39.443 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Private Build
+12-May-2024 02:44:39.443 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:44:39.443 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:44:39.447 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/conf/logging.properties
+12-May-2024 02:44:39.448 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+12-May-2024 02:44:39.448 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+12-May-2024 02:44:39.449 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+12-May-2024 02:44:39.449 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+12-May-2024 02:44:39.449 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+12-May-2024 02:44:39.449 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+12-May-2024 02:44:39.450 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+12-May-2024 02:44:39.450 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+12-May-2024 02:44:39.450 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+12-May-2024 02:44:39.451 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:44:39.451 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20
+12-May-2024 02:44:39.454 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/temp
+12-May-2024 02:44:39.457 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+12-May-2024 02:44:39.752 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+12-May-2024 02:44:39.763 SEVERE [main] org.apache.catalina.util.LifecycleBase.handleSubClassException Failed to initialize component [Connector["http-nio-8080"]]
+	org.apache.catalina.LifecycleException: Protocol handler initialization failed
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1016)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		at org.apache.catalina.core.StandardService.initInternal(StandardService.java:554)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:1017)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:127)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:708)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:731)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:302)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:472)
+	Caused by: java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:555)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+		at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:239)
+		at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:194)
+		at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1307)
+		at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1320)
+		at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:624)
+		at org.apache.coyote.http11.AbstractHttp11Protocol.init(AbstractHttp11Protocol.java:77)
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1014)
+		... 11 more
+12-May-2024 02:44:39.764 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [532] milliseconds
+12-May-2024 02:44:39.811 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+12-May-2024 02:44:39.811 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.20]
+12-May-2024 02:44:39.832 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/comp4321]
+12-May-2024 02:44:41.477 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+12-May-2024 02:44:41.574 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/comp4321] has finished in [1,741] ms
+12-May-2024 02:44:41.575 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/docs]
+12-May-2024 02:44:41.822 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/docs] has finished in [247] ms
+12-May-2024 02:44:41.823 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/examples]
+12-May-2024 02:44:44.533 SEVERE [main] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+12-May-2024 02:44:44.534 SEVERE [main] org.apache.catalina.core.StandardContext.startInternal Context [/examples] startup failed due to previous errors
+12-May-2024 02:44:44.567 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/examples] has finished in [2,744] ms
+12-May-2024 02:44:44.568 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/host-manager]
+12-May-2024 02:44:44.835 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/host-manager] has finished in [267] ms
+12-May-2024 02:44:44.836 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/manager]
+12-May-2024 02:44:45.481 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/manager] has finished in [644] ms
+12-May-2024 02:44:45.482 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/ROOT]
+12-May-2024 02:44:45.673 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/USER/OneDrive/Desktop/HKUST ACADEMICS/COMP4321/PROJECT/apache-tomcat-10.1.20/webapps/ROOT] has finished in [191] ms
+12-May-2024 02:44:45.681 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [5915] milliseconds
+12-May-2024 02:44:45.683 SEVERE [main] org.apache.catalina.core.StandardServer.await Failed to create server shutdown socket on address [localhost] and port [8005] (base port [8005] and offset [0])
+	java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:555)
+		at java.base/sun.nio.ch.Net.bind(Net.java:544)
+		at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:629)
+		at java.base/java.net.ServerSocket.bind(ServerSocket.java:393)
+		at java.base/java.net.ServerSocket.<init>(ServerSocket.java:275)
+		at org.apache.catalina.core.StandardServer.await(StandardServer.java:577)
+		at org.apache.catalina.startup.Catalina.await(Catalina.java:847)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:795)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+12-May-2024 02:44:45.684 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+12-May-2024 02:44:45.684 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+12-May-2024 02:44:45.809 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+12-May-2024 02:44:45.811 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
